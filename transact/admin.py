@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import loan, pay
 
-# Register your models here.
+
+admin.site.register(loan)
+
+admin.site.register(pay)
