@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import client
+from django.utils import timezone
 
 
 # Create your views here.
@@ -7,9 +9,31 @@ from django.shortcuts import render
 def home(request):
 
     #client = client.objects
-    client = 'client working'
-    return render(request, 'client/home.html', {'client': client})
+    #client = 'client working'
+    return render(request, 'client/home.html')
 
 
 def register(request):
-    return render(request, 'client/register.html')
+    if request.method == 'POST' :
+
+        if request.POST['surname'] and request.POST['other_names'] and request.POST['national_id'] and request.POST['cell_number'] and request.POST['branch'] and request.POST['business_area'] and request.POST['occupation'] and request.POST['status'] :
+            client1 = client()
+            client1.surname = request.POST['surname']
+            client1.other_names = request.POST['other_names']
+            client1.national_id = request.POST['national_id']
+            client1.cell_number = request.POST['cell_number']
+            client1.branch = request.POST['branch']
+            client1.business_area = request.POST['business_area']
+            client1.occupation = request.POST['occupation']
+            client1.status = request.POST['status']
+            client1.pub_date = timezone.datetime.now()
+            client1.creator = request.user
+            client1.save()
+
+            #client. = request.POST['']
+            return redirect('home')
+        else :
+            return render(request, 'client/register.html', {'error':'All fields are required'})
+
+    else :
+        return render(request, 'client/register.html')

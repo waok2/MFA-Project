@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 
 class client(models.Model):
    
-    surname_name = models.CharField(max_length=255)
+    surname = models.CharField(max_length=255)
     other_names = models.CharField(max_length=255)
     national_id = models.IntegerField()
-    cell_no = models.IntegerField()
+    cell_number = models.IntegerField()
     branch= models.CharField(max_length=255)
     business_area = models.CharField(max_length=255)
     occupation = models.CharField(max_length=255)
