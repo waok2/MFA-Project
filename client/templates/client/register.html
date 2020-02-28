@@ -1,0 +1,83 @@
+
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'register' %}" name="register_client"> 
+    {% csrf_token %}
+
+    <h2>Please enter Client details</h2>
+    <table>
+        <tr>
+            <td>
+                Surname :
+            </td>
+            <td>
+                <input type=”text” name="surname"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Other Names :
+            </td>
+            <td>
+                <input type=”text” name="other_names"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                National ID:
+            </td>
+            <td>
+                <input type=”text” name="national_id"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cell Number :
+            </td>
+            <td>
+                <input type=”text” name="cell_number"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Branch :
+            </td>
+            <td>
+                <input type=”text” name="branch"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Business Area:
+            </td>
+            <td>
+                <input type=”text” name="business_area"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Occupation :
+            </td>
+            <td>
+                <input type=”text” name="occupation"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Status:
+            </td>
+            <td>
+                <input type=”text” name=”status”/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="submit" value="Submit">
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </table>
+    
+</form>
+
