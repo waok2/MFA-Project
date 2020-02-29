@@ -7,9 +7,6 @@ from django.utils import timezone
 
 
 def home(request):
-
-    #client = client.objects
-    #client = 'client working'
     return render(request, 'client/home.html')
 
 
@@ -30,7 +27,6 @@ def register(request):
             client1.creator = request.user
             client1.save()
 
-            #client. = request.POST['']
             return redirect('home')
         else :
             return render(request, 'client/register.html', {'error':'All fields are required'})
