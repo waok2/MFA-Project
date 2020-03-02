@@ -1,1 +1,56 @@
 <h2>New Payment Form</h2>
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'newpay' %}" name="newpay">
+    {% csrf_token %}
+
+    <h3>Please Enter Loan Details</h3>
+    <table>
+        <tr>
+            <td>
+                Loan ID :
+            </td>
+            <td>
+                <input type="text" name="loan_id" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Amount :
+            </td>
+            <td>
+                <input type="text" name="amount" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cycle :
+            </td>
+            <td>
+                <input type="text" name="cycles" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mode :
+            </td>
+            <td>
+                <select name="mode_of_payment">
+                    <option value="cash">Cash</option>
+                    <option value="mpesa">Mpesa</option>
+                </select>
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+            <td>
+        
+            </td>
+        </tr>
+
+       
+    </table>
+
+</form>

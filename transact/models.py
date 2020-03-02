@@ -17,6 +17,9 @@ class loan(models.Model):
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
 
 
+    
+
+
 class pay(models.Model):
 
     loan_id = models.ForeignKey(loan, on_delete=models.PROTECT)

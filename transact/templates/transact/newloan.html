@@ -1,1 +1,89 @@
 <h2>New Loan Form</h2>
+
+{{  error  }}
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'newloan' %}" name="newloan">
+    {% csrf_token %}
+
+    <h3>Please Enter Loan Details</h3>
+    <table>
+        <tr>
+            <td>
+                Client :
+            </td>
+            <td>
+                <select name="client">
+                    <option value="">--------</option>
+                    {% for client in clients.all %}
+                    <option value="{{ client.pk }}">{{ client.surname }} {{ client.other_names }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Amount :
+            </td>
+            <td>
+                <input type="text" name="amount" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Repay Amount :
+            </td>
+            <td>
+                <input type="text" name="repay_amount" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cycles :
+            </td>
+            <td>
+                <input type="text" name="cycles" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Current Amount :
+            </td>
+            <td>
+                <input type="text" name="current_amount" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mode of Cycles :
+            </td>
+            <td>
+                <input type="text" name="mode_cycles" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Status :
+            </td>
+            <td>
+
+                <select name="status">
+                    <option value="active">Active</option>
+                    <option value="dormant">Dormant</option>
+                    <option value="Default">Defaulted</option>
+                </select>
+                
+            </td>
+        </tr>
+       
+        <tr>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+
+</form>
