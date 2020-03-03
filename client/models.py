@@ -17,3 +17,11 @@ class client(models.Model):
     #body = models.TextField()
     pub_date = models.DateTimeField(max_length=200)
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.surname
+
+
+    class Meta:
+            ordering = ['surname']
+

@@ -18,9 +18,12 @@ def newloan(request):
 
         if request.POST['client'] and request.POST['amount'] and request.POST['repay_amount'] and request.POST['cycles'] and request.POST['current_amount'] and request.POST['mode_cycles'] and request.POST['status']:
             loan1 = loan()
-            client2 = client.objects.only(request.POST['client']).get(id=client['client_id'])
 
-            loan1.client_id = client2
+
+            #client2 = client.objects.only(request.POST['client']).get(id=client['client_id'])
+           # client_testing = client2.request.GET.get("q")
+            test = client.objects.get(id=request.POST['client'])
+            loan1.client_id = test
             loan1.amount = request.POST['amount']
             loan1.repay_amount = request.POST['repay_amount']
             loan1.cycles = request.POST['cycles']
