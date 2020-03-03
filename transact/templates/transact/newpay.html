@@ -12,7 +12,12 @@
                 Loan ID :
             </td>
             <td>
-                <input type="text" name="loan_id" />
+                <select name="loan_id">
+                    <option value="">--------</option>
+                    {% for loan in loans.all %}
+                    <option value="{{ loan.pk }}">{{ loan.client_id }}, amount -  KSH {{ loan.amount }}</option>
+                    {% endfor %}
+                </select>
             </td>
         </tr>
         <tr>

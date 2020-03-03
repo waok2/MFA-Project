@@ -16,6 +16,13 @@ class loan(models.Model):
     pub_date = models.DateTimeField(max_length=200)
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return self.client_id
+
+    class Meta:
+        ordering = ['client_id']
+
+
 
     
 
@@ -28,6 +35,12 @@ class pay(models.Model):
     mode = models.CharField(max_length=255)
     pub_date = models.DateTimeField(max_length=200)
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.loan_id
+
+    class Meta:
+        ordering = ['loan_id']
 
 
 
