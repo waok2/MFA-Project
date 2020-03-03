@@ -1,5 +1,7 @@
 <h2>New Payment Form</h2>
 
+{{  error  }}
+
 <form method="POST" enctype="multipart/form-data" action="{% url 'newpay' %}" name="newpay">
     {% csrf_token %}
 

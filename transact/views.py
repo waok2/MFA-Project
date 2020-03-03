@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import loan, client
+from .models import loan, pay
 from django.utils import timezone
 from client.models import client
 
@@ -22,8 +22,8 @@ def newloan(request):
 
             #client2 = client.objects.only(request.POST['client']).get(id=client['client_id'])
            # client_testing = client2.request.GET.get("q")
-            test = client.objects.get(id=request.POST['client'])
-            loan1.client_id = test
+            client_instance = client.objects.get(id=request.POST['client'])
+            loan1.client_id = client_instance
             loan1.amount = request.POST['amount']
             loan1.repay_amount = request.POST['repay_amount']
             loan1.cycles = request.POST['cycles']
@@ -45,4 +45,17 @@ def newloan(request):
 
 
 def newpay(request):
-    return render(request, 'transact/newpay.html')
+
+    if request.method == 'POST':
+
+        if request.POST['loan_id'] and request.POST['amount'] and request.POST['cycles'] and request.POST['mode_of_payment']:
+            pay1 = pay()
+            #pay1.
+
+            return redirect('paydashboard')
+        else:
+            return render(request, 'transact/newpay.html', {'error': 'All fields are required'})
+
+
+    else:
+        return render(request, 'transact/newpay.html')
