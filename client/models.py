@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 #Create your models here.
 
 
-class client(models.Model):
+class Client(models.Model):
    
     surname = models.CharField(max_length=255)
     other_names = models.CharField(max_length=255)

@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import loan, pay
+from .models import Loan, Pay
 
 
-admin.site.register(loan)
+admin.site.register(Loan)
 
-admin.site.register(pay)
+admin.site.register(Pay)

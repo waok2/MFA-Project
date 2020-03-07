@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import client
+from .models import Client
 from django.utils import timezone
 
 
@@ -14,7 +14,7 @@ def register(request):
     if request.method == 'POST' :
 
         if request.POST['surname'] and request.POST['other_names'] and request.POST['national_id'] and request.POST['cell_number'] and request.POST['branch'] and request.POST['business_area'] and request.POST['occupation'] and request.POST['status'] :
-            client1 = client()
+            client1 = Client()
             client1.surname = request.POST['surname']
             client1.other_names = request.POST['other_names']
             client1.national_id = request.POST['national_id']

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import loan, pay
+from .models import Loan, Pay
 from django.utils import timezone
-from client.models import client
+from client.models import Client
 
 
 
@@ -11,18 +11,18 @@ def paydashboard(request):
 
 def newloan(request):
 
-    client1= client.objects.all()
+    client1= Client.objects.all()
 
 
     if request.method == 'POST':
 
         if request.POST['client'] and request.POST['amount'] and request.POST['repay_amount'] and request.POST['cycles'] and request.POST['current_amount'] and request.POST['mode_cycles'] and request.POST['status']:
-            loan1 = loan()
+            loan1 = Loan()
 
 
             #client2 = client.objects.only(request.POST['client']).get(id=client['client_id'])
            # client_testing = client2.request.GET.get("q")
-            client_instance = client.objects.get(id=request.POST['client'])
+            client_instance = Client.objects.get(id=request.POST['client'])
             loan1.client_id = client_instance
             loan1.amount = request.POST['amount']
             loan1.repay_amount = request.POST['repay_amount']
@@ -45,13 +45,13 @@ def newloan(request):
 
 
 def newpay(request):
-    loan1 = loan.objects.all()
+    loan1 = Loan.objects.all()
 
     if request.method == 'POST':
 
         if request.POST['loan_id'] and request.POST['amount'] and request.POST['cycles'] and request.POST['mode_of_payment']:
-            loan_instance = loan.objects.get(id=request.POST['loan_id'])
-            pay1 = pay()
+            loan_instance = Loan.objects.get(id=request.POST['loan_id'])
+            pay1 = Pay()
             pay1.loan_id = loan_instance
             pay1.amount = request.POST['amount']
             pay1.cycles = request.POST['cycles']

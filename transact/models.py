@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
-from client.models import client
+from client.models import Client
 
 
 
-class loan(models.Model):
+class Loan(models.Model):
 
-    client_id = models.ForeignKey(client, on_delete=models.PROTECT)
+    client_id = models.ForeignKey(Client, on_delete=models.PROTECT)
     amount = models.IntegerField()
     repay_amount = models.IntegerField()
     cycles = models.IntegerField()
@@ -17,19 +17,19 @@ class loan(models.Model):
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.client_id
+        return self.mode_cycles
 
     class Meta:
-        ordering = ['client_id']
+        ordering = ['mode_cycles']
 
 
 
     
 
 
-class pay(models.Model):
+class Pay(models.Model):
 
-    loan_id = models.ForeignKey(loan, on_delete=models.PROTECT)
+    loan_id = models.ForeignKey(Loan, on_delete=models.PROTECT)
     amount = models.IntegerField()
     cycles = models.IntegerField()
     mode = models.CharField(max_length=255)
@@ -37,10 +37,10 @@ class pay(models.Model):
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.loan_id
+        return self.mode
 
     class Meta:
-        ordering = ['loan_id']
+        ordering = ['pub_date']
 
 
 
