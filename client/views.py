@@ -10,6 +10,8 @@ def home(request):
     return render(request, 'client/home.html')
 
 
+
+
 def register(request):
     if request.method == 'POST' :
 
@@ -33,3 +35,7 @@ def register(request):
 
     else :
         return render(request, 'client/register.html')
+
+
+def all(request):
+    return render(request, 'client/all.html')

@@ -71,7 +71,10 @@ def newpay(request):
 
 
 def loans(request):
-    return render(request, 'transact/loans.html')
+
+    loans_all = Loan.objects.all()
+
+    return render(request, 'transact/loans.html', {'loans_all':loans_all})
 
 
 

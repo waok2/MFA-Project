@@ -1,0 +1,5 @@
+<h3>All Loans</h3>
+
+{% for loan in loans_all.all %}
+<p>{{ loan.cliend_id }}  {{ loan.amount }} </p>
+{% endfor %}
