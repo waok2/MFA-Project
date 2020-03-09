@@ -16,11 +16,10 @@ class Loan(models.Model):
     pub_date = models.DateTimeField(max_length=200)
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
 
-    def __str__(self):
-        return self.mode_cycles
+    def __int__(self):
+        return self.client_id
 
-    class Meta:
-        ordering = ['mode_cycles']
+   
 
 
 
@@ -31,16 +30,15 @@ class Pay(models.Model):
 
     loan_id = models.ForeignKey(Loan, on_delete=models.PROTECT)
     amount = models.IntegerField()
-    cycles = models.IntegerField()
-    mode = models.CharField(max_length=255)
+    cycle = models.IntegerField()
+    mode_of_payment = models.CharField(max_length=255)
     pub_date = models.DateTimeField(max_length=200)
     creator = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.mode
+        return self.mode_of_payment
 
-    class Meta:
-        ordering = ['pub_date']
+   
 
 
 

@@ -36,7 +36,7 @@ def newloan(request):
 
             return redirect('paydashboard')
         else:
-            return render(request, 'transact/newloan.html', {'error': 'All fields are required'})
+            return render(request, 'transact/newloan.html', {'error': 'All fields are required', 'clients': client1})
 
     else :
         return render(request, 'transact/newloan.html', {'clients':client1})
@@ -54,7 +54,7 @@ def newpay(request):
             pay1 = Pay()
             pay1.loan_id = loan_instance
             pay1.amount = request.POST['amount']
-            pay1.cycles = request.POST['cycles']
+            pay1.cycle = request.POST['cycles']
             pay1.mode_of_payment = request.POST['mode_of_payment']
             pay1.creator = request.user
             pay1.pub_date = timezone.datetime.now()
@@ -62,8 +62,18 @@ def newpay(request):
 
             return redirect('paydashboard')
         else:
-            return render(request, 'transact/newpay.html', {'error': 'All fields are required'})
+            return render(request, 'transact/newpay.html', {'error': 'All fields are required', 'loans': loan1})
 
 
     else:
-        return render(request, 'transact/newpay.html',{'loans':loan1})
+        return render(request, 'transact/newpay.html', {'loans':loan1})
+
+
+
+def loans(request):
+    return render(request, 'transact/loans.html')
+
+
+
+def payments(request):
+    return render(request, 'transact/payments.html')
