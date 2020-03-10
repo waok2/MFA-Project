@@ -73,6 +73,13 @@ def newpay(request):
 def loans(request):
 
     loans_all = Loan.objects.all()
+    clients_all = Client.objects.all()
+    loan_record = {}
+
+    for l, c in loans_all, clients_all:
+        pass
+        
+        
 
     return render(request, 'transact/loans.html', {'loans_all':loans_all})
 
