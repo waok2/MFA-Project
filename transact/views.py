@@ -81,7 +81,7 @@ def loans(request):
         
         
 
-    return render(request, 'transact/loans.html', {'loans_all':loans_all})
+    return render(request, 'transact/loans.html', {'loans_all':loans_all, 'clients_all':clients_all})
 
 
 
