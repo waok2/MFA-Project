@@ -75,6 +75,8 @@ def loans(request):
     loans_all = Loan.objects.all()
     clients_all = Client.objects.all()
     #loan_record = {}  
+   
+
 
     return render(request, 'transact/loans.html', {'loans_all':loans_all, 'clients_all':clients_all})
 
