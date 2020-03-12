@@ -7,9 +7,14 @@
 
         {% if client.pk == loans.client_id.pk %}
 
-        {{ loans.id }} {{ loans.amount }}
+       
+
+        {{ loans.amount }} {{ loans.status }} {{ loans.amount }} {{ loans.repay_amount }} {{ loans.current_amount }} <br/>
              
+
         {% else %}
+
+
 
         {% endif %}
        
