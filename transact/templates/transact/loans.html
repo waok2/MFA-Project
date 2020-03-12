@@ -2,22 +2,15 @@
 
 {% for client in clients_all.all %}
 
-<p> {{ client.surname  }} {{ client.other_names  }} </p>
+<p> <h3>{{ client.surname  }} {{ client.other_names  }} {{ client.pk  }} </h3> </p>
         {% for loans in loans_all.all %}
 
-           {% if client.pk == loans.client_id %}
+                
+                {{  loans.client_id.pk   }}
 
-             <br/> {{ loans.amount  }} {{ loans.amount  }}
 
-            {% else %}
-           
-            <p> No Loans </p>
-            {% endif %}
-
-            
         {% endfor %}
 
+        <hr/>
+
 {% endfor %}
-
-
-<hr/>
