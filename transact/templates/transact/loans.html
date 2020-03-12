@@ -5,9 +5,14 @@
 <p> <h3>{{ client.surname  }} {{ client.other_names  }} {{ client.pk  }} </h3> </p>
         {% for loans in loans_all.all %}
 
-                
-                {{  loans.client_id.pk   }}
+        {% if client.pk == loans.client_id.pk %}
 
+        {{ loans.id }} {{ loans.amount }}
+             
+        {% else %}
+
+        {% endif %}
+       
 
         {% endfor %}
 
