@@ -86,4 +86,4 @@ def payments(request):
 
     payments_all = Pay.objects.all()
 
-    return render(request, 'transact/payments.html', {'payments':payments_all})
+    return render(request, 'transact/payments.html', {'payments_all':payments_all})
