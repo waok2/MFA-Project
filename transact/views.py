@@ -83,4 +83,7 @@ def loans(request):
 
 
 def payments(request):
-    return render(request, 'transact/payments.html')
+
+    payments_all = Pay.objects.all()
+
+    return render(request, 'transact/payments.html', {'payments':payments_all})
