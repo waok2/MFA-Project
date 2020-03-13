@@ -1,8 +1,8 @@
-<h2>>   All Payements </h2>
+<h2>   All Payements </h2>
 
 
-{% for payement in payements_all %}
-{{payement.amount }}  {{payement.mode}} <br/>
+{% for payment in payments_all %}
+{{payment.amount }}  {{payment.mode_of_payment}}  {{ payment.cycle}}  {{ payment.loan_id.client_id.surname  }} {{ payment.loan_id.client_id.other_names  }} <br/>
 
 {% endfor   %}
 
