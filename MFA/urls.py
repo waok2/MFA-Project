@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import client.views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,3 +24,6 @@ urlpatterns = [
     path('client/', include('client.urls')),
     path('pay/', include('transact.urls')),
 ]
+
+
+urlpatterns += staticfiles_urlpatterns()
