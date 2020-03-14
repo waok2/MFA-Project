@@ -39,3 +39,7 @@ def register(request):
 
 def all(request):
     return render(request, 'client/all.html')
+
+
+def main(request):
+    return render(request, 'client/main.html')
