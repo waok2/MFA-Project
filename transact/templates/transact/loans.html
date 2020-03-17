@@ -1,3 +1,10 @@
+{%  extends 'main.html'  %}
+
+
+
+{% block content %}
+
+
 <h3>All Loans</h3>
 
 {% for client in clients_all.all %}
@@ -24,3 +31,6 @@
         <hr/>
 
 {% endfor %}
+
+
+{% endblock %}
