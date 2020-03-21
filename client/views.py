@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Client
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 
 # Create your views here.
@@ -38,7 +40,16 @@ def register(request):
 
 
 def login(request):
-    return render(request, 'client/login.html')
+
+    if request.POST['username'] and request.POST['password']:
+
+        user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+
+
+        return render(request, 'client/login.html')
+
+    else:
+        return render(request, 'client/login.html')
 
 def all(request):
     return render(request, 'client/all.html')
