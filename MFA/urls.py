@@ -23,6 +23,7 @@ urlpatterns = [
     path('',client.views.home, name='home'),
     path('client/', include('client.urls')),
     path('pay/', include('transact.urls')),
+    path('login/', client.views.login, name='login'),
 ]
 
 
