@@ -37,6 +37,9 @@ def register(request):
         return render(request, 'client/register.html')
 
 
+def login(request):
+    return render(request, 'client/login.html')
+
 def all(request):
     return render(request, 'client/all.html')
 
