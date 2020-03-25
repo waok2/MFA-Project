@@ -50,12 +50,19 @@ def login(request):
         else:
             return render(request, 'client/login.html', {'error':'username or password is incorrect'})
 
-
-
-       # return render(request, 'client/login.html')
-
     else:
         return render(request, 'client/login.html')
+
+
+def logout(request):
+    
+    if request.method == 'POST' :
+        auth.logout(request)
+        return redirect ('home')
+    else:
+        return render(request, 'client/login.html')
+
+
 
 def all(request):
     return render(request, 'client/all.html')
