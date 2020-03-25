@@ -41,12 +41,18 @@ def register(request):
 
 def login(request):
 
-    if request.POST['username'] and request.POST['password']:
-
+   # if request.POST['username'] and request.POST['password']:
+    if request.method == 'POST' :
         user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            auth.login(request, user)
+            return redirect('paydashboard')
+        else:
+            return render(request, 'client/login.html', {'error':'username or password is incorrect'})
 
 
-        return render(request, 'client/login.html')
+
+       # return render(request, 'client/login.html')
 
     else:
         return render(request, 'client/login.html')
