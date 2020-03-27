@@ -3,6 +3,7 @@ from .models import Client
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib.auth.decorators import  login_required
 
 
 # Create your views here.
@@ -13,7 +14,7 @@ def home(request):
 
 
 
-
+@login_required
 def register(request):
     if request.method == 'POST' :
 

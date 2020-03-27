@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 from .models import Loan, Pay
 from django.utils import timezone
 from client.models import Client
-
+from django.contrib.auth.decorators import login_required
 
 
 def paydashboard(request):
     return render(request, 'transact/paydashboard.html')
 
 
+@login_required
 def newloan(request):
 
     client1= Client.objects.all()
@@ -42,8 +43,7 @@ def newloan(request):
         return render(request, 'transact/newloan.html', {'clients':client1})
 
 
-
-
+@login_required
 def newpay(request):
     loan1 = Loan.objects.all()
 
@@ -69,7 +69,7 @@ def newpay(request):
         return render(request, 'transact/newpay.html', {'loans':loan1})
 
 
-
+@login_required
 def loans(request):
 
     loans_all = Loan.objects.all()
@@ -81,7 +81,7 @@ def loans(request):
     return render(request, 'transact/loans.html', {'loans_all':loans_all, 'clients_all':clients_all})
 
 
-
+@login_required
 def payments(request):
 
     payments_all = Pay.objects.all()
