@@ -13,4 +13,6 @@ db.sqlite3-journal
 /media
 /static
 /_static
+!/_static/bootstrap-4.3.1-dist/*
+!/static/bootstrap-4.3.1-dist/*
 
