@@ -8,13 +8,12 @@ from django.contrib.auth.decorators import  login_required
 
 # Create your views here.
 
-
+@login_required(login_url='/client/login')
 def home(request):
-    return render(request, 'client/home.html')
+    clients = Client.objects.all()
+    return render(request, 'client/home.html', {'clients':clients})
 
-
-
-@login_required
+@login_required(login_url='/client/login')
 def register(request):
     if request.method == 'POST' :
 
@@ -64,15 +63,17 @@ def logout(request):
         return render(request, 'client/login.html')
 
 
-
+@login_required(login_url='/client/login')
 def all(request):
     return render(request, 'client/all.html')
 
 
+@login_required(login_url='/client/login')
 def main(request):
     return render(request, 'client/main.html')
 
 
+@login_required(login_url='/client/login')
 def client(request, client_id):
     client = get_object_or_404(Client, pk= client_id)
     return render(request, 'client/client.html', {'client':client})

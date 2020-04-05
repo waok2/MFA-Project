@@ -5,6 +5,22 @@
 {% block content %}
 <h2>client Home Page</h2>
 
+
+{% for client in clients.all %}
+
+<div onclick="window.location='{% url 'client' client.pk %}';" style= "cursor: pointer;">
+<p>
+    <h3>{{ client.surname  }} {{ client.other_names  }} {{ client.pk  }} </h3>
+</p>
+
+</div>
+
+<hr />
+
+{% endfor %}
+
+
+
 {{ client }}
 
 {% endblock %}
