@@ -46,7 +46,7 @@ def login(request):
         user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             auth.login(request, user)
-            return redirect('paydashboard')
+            return redirect('landing')
         else:
             return render(request, 'client/login.html', {'error':'username or password is incorrect'})
 
@@ -77,3 +77,8 @@ def main(request):
 def client(request, client_id):
     client = get_object_or_404(Client, pk= client_id)
     return render(request, 'client/client.html', {'client':client})
+
+
+@login_required(login_url='/client/login')
+def landing(request):
+    return render(request, 'client/landing.html')
