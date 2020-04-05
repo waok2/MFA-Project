@@ -31,7 +31,8 @@ def register(request):
             client1.creator = request.user
             client1.save()
 
-            return redirect('/client/' + str(client1.pk))
+            #return redirect('/client/' + str(client1.pk))
+            return redirect('home')
         else :
             return render(request, 'client/register.html', {'error':'All fields are required'})
 
