@@ -6,14 +6,15 @@
 
 
 
-<h2>New Payment Form</h2>
+<h3>New Payment Form</h3>
+{% include "transact/paynav.html" %}
 
 {{  error  }}
 
 <form method="POST" enctype="multipart/form-data" action="{% url 'newpay' %}" name="newpay">
     {% csrf_token %}
 
-    <h3>Please Enter Loan Details</h3>
+    <h4>Please Enter Loan Details</h4>
     <table>
         <tr>
             <td>

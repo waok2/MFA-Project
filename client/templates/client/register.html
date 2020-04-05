@@ -2,7 +2,9 @@
 
 {% block content %}
 
+<h3>Client Registration Form</h3>
 
+{% include "client/clientnav.html" %}
 
 <h6>{{ error }}</h6>
 
@@ -11,7 +13,7 @@
 <form method="POST" enctype="multipart/form-data" action="{% url 'register' %}" name="register_client"> 
     {% csrf_token %}
 
-    <h2>Please enter Client details</h2>
+    <h4>Please enter Client details</h4>
     <table>
         <tr>
             <td>

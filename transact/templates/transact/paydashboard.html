@@ -2,14 +2,10 @@
 
 {% block content %}
 
-<h2>Transactions Dashboard </h2>
+<h3>Transactions Dashboard </h3>
 
 
-<a href="{% url 'loans' %}"> View all loans</a> 
-<a href="{% url 'newloan' %}"> Add Loan</a>
-<a href="{% url 'payements' %}"> View all payements</a>
-<a href="{% url 'newpay' %}"> Make new payement</a>
-
+{% include "transact/paynav.html" %}
 
 
 {% endblock %}

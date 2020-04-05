@@ -5,16 +5,16 @@
 {% block content %}
 
 
+<h3>New Loan Form</h3>
 
-
-<h2>New Loan Form</h2>
+{% include "transact/paynav.html" %}
 
 {{  error  }}
 
 <form method="POST" enctype="multipart/form-data" action="{% url 'newloan' %}" name="newloan">
     {% csrf_token %}
 
-    <h3>Please Enter Loan Details</h3>
+    <h4>Please Enter Loan Details</h4>
     <table>
         <tr>
             <td>

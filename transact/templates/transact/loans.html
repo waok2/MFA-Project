@@ -7,9 +7,11 @@
 
 <h3>All Loans</h3>
 
+{% include "transact/paynav.html" %}
+
 {% for client in clients_all.all %}
 
-<p> <h3>{{ client.surname  }} {{ client.other_names  }} {{ client.pk  }} </h3> </p>
+<p> <h5>{{ client.surname  }} {{ client.other_names  }} {{ client.pk  }} </h5> </p>
         {% for loans in loans_all.all %}
 
         {% if client.pk == loans.client_id.pk %}

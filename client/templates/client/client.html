@@ -3,9 +3,10 @@
 
 
 {% block content %}
-<h2>Client Details </h2>
+<h3> {{ client.surname }} {{ client.other_names }} Details </h3>
+{% include "client/clientnav.html" %}
 
-{{ client.surname }}
+
 
 
 
