@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Client
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -32,7 +32,7 @@ def register(request):
             client1.creator = request.user
             client1.save()
 
-            return redirect('home')
+            return redirect('/client/' + str(client1.pk))
         else :
             return render(request, 'client/register.html', {'error':'All fields are required'})
 
@@ -71,3 +71,8 @@ def all(request):
 
 def main(request):
     return render(request, 'client/main.html')
+
+
+def client(request, client_id):
+    client = get_object_or_404(Client, pk= client_id)
+    return render(request, 'client/client.html', {'client':client})
