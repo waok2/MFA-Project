@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Loan, Pay
 from django.utils import timezone
 from client.models import Client
@@ -88,3 +88,12 @@ def payments(request):
     payments_all = Pay.objects.all()
 
     return render(request, 'transact/payments.html', {'payments_all':payments_all})
+
+
+@login_required(login_url='/client/login')
+def loan(request,loan_id):
+
+   loan = get_object_or_404(Loan, pk=loan_id)
+   #client = loan.client
+   client = get_object_or_404(Client, loan=loan_id)
+   return render(request, 'transact/loan.html', {'loan': loan, 'client':client})

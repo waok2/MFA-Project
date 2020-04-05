@@ -1,0 +1,11 @@
+{%  extends 'main.html'  %}
+
+{% block content %}
+
+<h3>Loan Detail ( {{loan.amount}} -> {{ client.surname }} {{ client.other_names }}) </h3>
+
+
+{% include "transact/paynav.html" %}
+
+
+{% endblock %}

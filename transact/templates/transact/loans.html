@@ -11,14 +11,14 @@
 
 {% for client in clients_all.all %}
 
-<p> <h5>{{ client.surname  }} {{ client.other_names  }} {{ client.pk  }} </h5> </p>
+<p> <h5>{{ client.surname  }} {{ client.other_names  }} </h5> </p>
         {% for loans in loans_all.all %}
 
         {% if client.pk == loans.client_id.pk %}
 
        
 
-        {{ loans.amount }} {{ loans.status }} {{ loans.amount }} {{ loans.repay_amount }} {{ loans.current_amount }} {{  loans.mode_cycles  }} <br/>
+       Status->{{ loans.status }} Amount->{{ loans.amount }} Repay->{{ loans.repay_amount }} Current->{{ loans.current_amount }}<br/>
              
 
         {% else %}
