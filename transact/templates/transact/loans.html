@@ -17,9 +17,9 @@
         {% if client.pk == loans.client_id.pk %}
 
        
-
+<div  onclick="window.location='{% url 'loan' loans.pk %}';" style= "cursor: pointer;">
        Status->{{ loans.status }} Amount->{{ loans.amount }} Repay->{{ loans.repay_amount }} Current->{{ loans.current_amount }}<br/>
-             
+</div>
 
         {% else %}
 
